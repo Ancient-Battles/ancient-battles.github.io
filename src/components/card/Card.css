@@ -1,0 +1,67 @@
+@font-face {
+  font-family: "Dungeon" ;
+  src: url("../../assets/DUNGRG__.TTF");
+}
+.card {
+  width: 3cm;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation-duration: 1s;
+  transform-origin: center bottom 0;
+  transition: transform 1s ease-in-out;
+}
+
+.card img {
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+}
+
+.health {
+  font: 26px Dungeon;
+  position: absolute;
+  top: 3.05cm;
+  left: 0.69cm;
+}
+
+.attack {
+  font: 26px Dungeon;
+  position: absolute;
+  top: 3.05cm;
+  left: 1.95cm;
+}
+
+.rank {
+  font: 26px Dungeon;
+  position: absolute;
+  top: 2.85cm;
+  left: 1.35cm;
+}
+
+.nameContainer {
+  grid-template-columns: fit-content(10px) fit-content(10px) 1fr;
+  box-sizing: border-box;
+  height: 18px;
+  width: 90%;
+  position: absolute;
+  top: 3.65cm;
+  left: 0.15cm;
+}
+
+.name {
+  text-align: center;
+  font-family: Dungeon;
+  font-display: bold;
+  font-size: 18px;
+  white-space: nowrap;
+}
+
+.card.is-dragging {
+  display: none;
+  transition: none;
+}
+
+.card.is-flying {
+  transition: none;
+}

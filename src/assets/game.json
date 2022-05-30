@@ -1,0 +1,217 @@
+{
+  "initialMoves": [
+    {
+      "from": "player1Deck",
+      "to": "player1Hand",
+      "amount": 3
+    },
+    {
+      "from": "player2Deck",
+      "to": "player2Hand",
+      "amount": 3
+    }
+  ],
+  "tableaux": [
+    {
+      "id": "player1Tableau",
+      "name": "Player 1",
+      "owner": "player1"
+    },
+    {
+      "id": "player2Tableau",
+      "name": "Player 2",
+      "owner": "player2"
+    }
+  ],
+  "piles": [
+    {
+      "id": "player1Hand",
+      "name": "Hand",
+      "sort": true,
+      "incoming": [
+        "!hasEnded() && !hasDrawn() && isPlayer1Turn() && getStatePhase() === 'DrawPhase' && 'player1Deck' === move.from || 'player1Hand' === move.from"
+      ],
+      "allowShowFront": true,
+      "showBack": true,
+      "unfolded": true
+    },
+    {
+      "id": "player2Hand",
+      "name": "Hand",
+      "sort": true,
+      "incoming": [
+        "!hasEnded() && !hasDrawn() && !isPlayer1Turn() && getStatePhase() === 'DrawPhase' && 'player2Deck' === move.from || 'player2Hand' === move.from"
+      ],
+      "allowShowFront": true,
+      "showBack": true,
+      "unfolded": true
+    },
+    {
+      "id": "player1Deck",
+      "name": "Deck",
+      "incoming": [
+        "false"
+      ],
+      "showBack": true,
+      "initialShuffle": true
+    },
+    {
+      "id": "player2Deck",
+      "name": "Deck",
+      "incoming": [
+        "false"
+      ],
+      "showBack": true,
+      "initialShuffle": true
+    },
+    {
+      "id": "player1Cemetery",
+      "name": "Cemetery",
+      "incoming": [
+        "!hasEnded() && getStatePhase() === 'BattlePhase' && move.amount === 1 && ('player1Minion0' === move.from || 'player1Minion1' === move.from || 'player1Minion2' === move.from || 'player1Minion3' === move.from)"
+      ],
+      "allowShowFront": true,
+      "showBack": false
+    },
+    {
+      "id": "player2Cemetery",
+      "name": "Cemetery",
+      "incoming": [
+        "!hasEnded() && getStatePhase() === 'BattlePhase' && move.amount === 1 && ('player2Minion0' === move.from || 'player2Minion1' === move.from || 'player2Minion2' === move.from || 'player2Minion3' === move.from)"
+      ],
+      "allowShowFront": true,
+      "showBack": false
+    },
+    {
+      "id": "player1Warlord",
+      "name": "Warlord",
+      "incoming": [
+        "!hasEnded() && !isPlayer1Turn() && getStatePhase() === 'BattlePhase' && move.amount === 1 && toPile.cards.length === 1 && ('player2Minion0' === move.from || 'player2Minion1' === move.from || 'player2Minion2' === move.from || 'player2Minion3' === move.from || 'player2Warlord' === move.from)"
+      ],
+      "allowShowFront": true,
+      "hasActed": false
+    },
+    {
+      "id": "player2Warlord",
+      "name": "Warlord",
+      "incoming": [
+        "!hasEnded() && isPlayer1Turn() && getStatePhase() === 'BattlePhase' && move.amount === 1 && toPile.cards.length === 1 && ('player1Minion0' === move.from || 'player1Minion1' === move.from || 'player1Minion2' === move.from || 'player1Minion3' === move.from || 'player1Warlord' === move.from)"
+      ],
+      "allowShowFront": true,
+      "hasActed": false
+    },
+    {
+      "id": "player1Minion0",
+      "name": "Minion Slot 0",
+      "incoming": [
+        "!hasEnded() && (isPlayer1Turn() && getStatePhase() === 'MainPhase' && move.amount === 1 && toPile.cards.length === 0 && ('player1Hand' === move.from || 'player1Minion0' === move.from || 'player1Minion1' === move.from || 'player1Minion2' === move.from || 'player1Minion3' === move.from)) || (!isPlayer1Turn() && getStatePhase() === 'BattlePhase' && move.amount === 1 && toPile.cards.length === 1 && ('player2Minion0' === move.from || 'player2Minion1' === move.from || 'player2Minion2' === move.from || 'player2Minion3' === move.from))"
+      ],
+      "allowShowFront": true,
+      "showBack": false,
+      "hasActed": false
+    },
+    {
+      "id": "player1Minion1",
+      "name": "Minion Slot 1",
+      "incoming": [
+        "!hasEnded() && (isPlayer1Turn() && getStatePhase() === 'MainPhase' && move.amount === 1 && toPile.cards.length === 0 && ('player1Hand' === move.from || 'player1Minion0' === move.from || 'player1Minion1' === move.from || 'player1Minion2' === move.from || 'player1Minion3' === move.from)) || (!isPlayer1Turn() && getStatePhase() === 'BattlePhase' && move.amount === 1 && toPile.cards.length === 1 && ('player2Minion0' === move.from || 'player2Minion1' === move.from || 'player2Minion2' === move.from || 'player2Minion3' === move.from))"
+      ],
+      "allowShowFront": true,
+      "showBack": false,
+      "hasActed": false
+    },
+    {
+      "id": "player1Minion2",
+      "name": "Minion Slot 2",
+      "incoming": [
+        "!hasEnded() && (isPlayer1Turn() && getStatePhase() === 'MainPhase' && move.amount === 1 && toPile.cards.length === 0 && ('player1Hand' === move.from || 'player1Minion0' === move.from || 'player1Minion1' === move.from || 'player1Minion2' === move.from || 'player1Minion3' === move.from)) || (!isPlayer1Turn() && getStatePhase() === 'BattlePhase' && move.amount === 1 && toPile.cards.length === 1 && ('player2Minion0' === move.from || 'player2Minion1' === move.from || 'player2Minion2' === move.from || 'player2Minion3' === move.from))"
+      ],
+      "allowShowFront": true,
+      "showBack": false,
+      "hasActed": false
+    },
+    {
+      "id": "player1Minion3",
+      "name": "Minion Slot 3",
+      "incoming": [
+        "!hasEnded() && (isPlayer1Turn() && getStatePhase() === 'MainPhase' && move.amount === 1 && toPile.cards.length === 0 && ('player1Hand' === move.from || 'player1Minion0' === move.from || 'player1Minion1' === move.from || 'player1Minion2' === move.from || 'player1Minion3' === move.from)) || (!isPlayer1Turn() && getStatePhase() === 'BattlePhase' && move.amount === 1 && toPile.cards.length === 1 && ('player2Minion0' === move.from || 'player2Minion1' === move.from || 'player2Minion2' === move.from || 'player2Minion3' === move.from))"
+      ],
+      "allowShowFront": true,
+      "showBack": false,
+      "hasActed": false
+    },
+    {
+      "id": "player2Minion0",
+      "name": "Minion Slot 0",
+      "incoming": [
+        "!hasEnded() && (!isPlayer1Turn() && getStatePhase() === 'MainPhase' && move.amount === 1 && toPile.cards.length === 0 && ('player2Hand' === move.from || 'player2Minion0' === move.from || 'player2Minion1' === move.from || 'player2Minion2' === move.from || 'player2Minion3' === move.from)) || (isPlayer1Turn() && getStatePhase() === 'BattlePhase' && move.amount === 1 && toPile.cards.length === 1 && ('player1Minion0' === move.from || 'player1Minion1' === move.from || 'player1Minion2' === move.from || 'player1Minion3' === move.from))"
+      ],
+      "allowShowFront": true,
+      "showBack": false,
+      "hasActed": false
+    },
+    {
+      "id": "player2Minion1",
+      "name": "Minion Slot 1",
+      "incoming": [
+        "!hasEnded() && (!isPlayer1Turn() && getStatePhase() === 'MainPhase' && move.amount === 1 && toPile.cards.length === 0 && ('player2Hand' === move.from || 'player2Minion0' === move.from || 'player2Minion1' === move.from || 'player2Minion2' === move.from || 'player2Minion3' === move.from)) || (isPlayer1Turn() && getStatePhase() === 'BattlePhase' && move.amount === 1 && toPile.cards.length === 1 && ('player1Minion0' === move.from || 'player1Minion1' === move.from || 'player1Minion2' === move.from || 'player1Minion3' === move.from))"
+      ],
+      "allowShowFront": true,
+      "showBack": false,
+      "hasActed": false
+    },
+    {
+      "id": "player2Minion2",
+      "name": "Minion Slot 2",
+      "incoming": [
+        "!hasEnded() && (!isPlayer1Turn() && getStatePhase() === 'MainPhase' && move.amount === 1 && toPile.cards.length === 0 && ('player2Hand' === move.from || 'player2Minion0' === move.from || 'player2Minion1' === move.from || 'player2Minion2' === move.from || 'player2Minion3' === move.from)) || (isPlayer1Turn() && getStatePhase() === 'BattlePhase' && move.amount === 1 && toPile.cards.length === 1 && ('player1Minion0' === move.from || 'player1Minion1' === move.from || 'player1Minion2' === move.from || 'player1Minion3' === move.from))"
+      ],
+      "allowShowFront": true,
+      "showBack": false,
+      "hasActed": false
+    },
+    {
+      "id": "player2Minion3",
+      "name": "Minion Slot 3",
+      "incoming": [
+        "!hasEnded() && (!isPlayer1Turn() && getStatePhase() === 'MainPhase' && move.amount === 1 && toPile.cards.length === 0 && ('player2Hand' === move.from || 'player2Minion0' === move.from || 'player2Minion1' === move.from || 'player2Minion2' === move.from || 'player2Minion3' === move.from)) || (isPlayer1Turn() && getStatePhase() === 'BattlePhase' && move.amount === 1 && toPile.cards.length === 1 && ('player1Minion0' === move.from || 'player1Minion1' === move.from || 'player1Minion2' === move.from || 'player1Minion3' === move.from))"
+      ],
+      "allowShowFront": true,
+      "showBack": false,
+      "hasActed": false
+    }
+  ],
+  "cards": [
+    { "id": "dark-elf-1",        "url": "dark-elf-1",         "category": "dark-elf",   "rank": 6,    "attackValue": 7,   "healthValue": 5,   "originalHealthValue": 5,    "name": "Wolf Hunter"   },
+    { "id": "dark-elf-1-1",      "url": "dark-elf-1-1",       "category": "dark-elf",   "rank": 6,    "attackValue": 7,   "healthValue": 5,   "originalHealthValue": 5,    "name": "Wolf Hunter"   },
+    { "id": "dark-elf-2",        "url": "dark-elf-2",         "category": "dark-elf",   "rank": 2,    "attackValue": 4,   "healthValue": 2,   "originalHealthValue": 2,    "name": "Demon Mage"   },
+    { "id": "dark-elf-2-1",      "url": "dark-elf-2-1",       "category": "dark-elf",   "rank": 2,    "attackValue": 4,   "healthValue": 2,   "originalHealthValue": 2,    "name": "Demon Mage"   },
+    { "id": "dark-elf-3",        "url": "dark-elf-3",         "category": "dark-elf",   "rank": 1,    "attackValue": 2,   "healthValue": 2,   "originalHealthValue": 2,    "name": "Elven Apprentice"   },
+    { "id": "dark-elf-3-1",      "url": "dark-elf-3-1",       "category": "dark-elf",   "rank": 1,    "attackValue": 2,   "healthValue": 2,   "originalHealthValue": 2,    "name": "Elven Apprentice"   },
+    { "id": "dark-elf-4",        "url": "dark-elf-4",         "category": "dark-elf",   "rank": 3,    "attackValue": 5,   "healthValue": 1,   "originalHealthValue": 1,    "name": "Goat Shaman"   },
+    { "id": "dark-elf-4-1",      "url": "dark-elf-4-1",       "category": "dark-elf",   "rank": 3,    "attackValue": 5,   "healthValue": 1,   "originalHealthValue": 1,    "name": "Goat Shaman"   },
+    { "id": "dark-elf-5",        "url": "dark-elf-5",         "category": "dark-elf",   "rank": 10,   "attackValue": 2,   "healthValue": 10,  "originalHealthValue": 10,   "name": "Dawn Blade"   },
+    { "id": "dark-elf-6",        "url": "dark-elf-6",         "category": "dark-elf",   "rank": 4,    "attackValue": 3,   "healthValue": 6,   "originalHealthValue": 6,    "name": "High Aristocrat"   },
+    { "id": "dark-elf-6-1",      "url": "dark-elf-6-1",       "category": "dark-elf",   "rank": 4,    "attackValue": 3,   "healthValue": 6,   "originalHealthValue": 6,    "name": "High Aristocrat"   },
+    { "id": "dark-elf-7",        "url": "dark-elf-7",         "category": "dark-elf",   "rank": 5,    "attackValue": 4,   "healthValue": 4,   "originalHealthValue": 4,    "name": "Elven Guard"   },
+    { "id": "dark-elf-7-1",      "url": "dark-elf-7-1",       "category": "dark-elf",   "rank": 5,    "attackValue": 4,   "healthValue": 4,   "originalHealthValue": 4,    "name": "Elven Guard"   },
+    { "id": "dark-elf-8",        "url": "dark-elf-8",         "category": "dark-elf",   "rank": 4,    "attackValue": 6,   "healthValue": 3,   "originalHealthValue": 3,    "name": "Silent Rogue"   },
+    { "id": "dark-elf-8-1",      "url": "dark-elf-8-1",       "category": "dark-elf",   "rank": 4,    "attackValue": 6,   "healthValue": 3,   "originalHealthValue": 3,    "name": "Silent Rogue"   },
+    
+    { "id": "human-1",        "url": "human-1",         "category": "human",   "rank": 1,    "attackValue": 1,   "healthValue": 3,   "originalHealthValue": 3,    "name": "Happy Soldier"   },
+    { "id": "human-1-1",      "url": "human-1-1",       "category": "human",   "rank": 1,    "attackValue": 1,   "healthValue": 3,   "originalHealthValue": 3,    "name": "Happy Soldier"   },
+    { "id": "human-2",        "url": "human-2",         "category": "human",   "rank": 3,    "attackValue": 4,   "healthValue": 3,   "originalHealthValue": 3,    "name": "Old Wizard"   },
+    { "id": "human-2-1",      "url": "human-2-1",       "category": "human",   "rank": 3,    "attackValue": 4,   "healthValue": 3,   "originalHealthValue": 3,    "name": "Old Wizard"   },
+    { "id": "human-3",        "url": "human-3",         "category": "human",   "rank": 5,    "attackValue": 6,   "healthValue": 2,   "originalHealthValue": 2,    "name": "Pyromancer"   },
+    { "id": "human-3-1",      "url": "human-3-1",       "category": "human",   "rank": 5,    "attackValue": 6,   "healthValue": 2,   "originalHealthValue": 2,    "name": "Pyromancer"   },
+    { "id": "human-4",        "url": "human-4",         "category": "human",   "rank": 5,    "attackValue": 4,   "healthValue": 4,   "originalHealthValue": 4,    "name": "Knight Lancer"   },
+    { "id": "human-4-1",      "url": "human-4-1",       "category": "human",   "rank": 5,    "attackValue": 4,   "healthValue": 4,   "originalHealthValue": 4,    "name": "Knight Lancer"   },
+    { "id": "human-5",        "url": "human-5",         "category": "human",   "rank": 10,   "attackValue": 2,   "healthValue": 10,  "originalHealthValue": 10,   "name": "Solari Commander"   },
+    { "id": "human-6",        "url": "human-6",         "category": "human",   "rank": 2,    "attackValue": 2,   "healthValue": 4,   "originalHealthValue": 4,    "name": "Young Priestess"   },
+    { "id": "human-6-1",      "url": "human-6-1",       "category": "human",   "rank": 2,    "attackValue": 2,   "healthValue": 4,   "originalHealthValue": 4,    "name": "Young Priestess"   },
+    { "id": "human-7",        "url": "human-7",         "category": "human",   "rank": 4,    "attackValue": 4,   "healthValue": 4,   "originalHealthValue": 4,    "name": "Axe Guard"   },
+    { "id": "human-7-1",      "url": "human-7-1",       "category": "human",   "rank": 4,    "attackValue": 4,   "healthValue": 4,   "originalHealthValue": 4,    "name": "Axe Guard"   },
+    { "id": "human-8",        "url": "human-8",         "category": "human",   "rank": 3,    "attackValue": 3,   "healthValue": 3,   "originalHealthValue": 3,    "name": "Shielded Soldier"   },
+    { "id": "human-8-1",      "url": "human-8-1",       "category": "human",   "rank": 3,    "attackValue": 3,   "healthValue": 3,   "originalHealthValue": 3,    "name": "Shielded Soldier"   }
+  ]
+}

@@ -1,0 +1,222 @@
+.tableau {
+  border-radius: 10px;
+  font-size: 16px;
+  font-family: monospace;
+  text-transform: capitalize;
+  text-align: center;
+  background-image: url("../assets/playboard-silver.png");
+  background-size: cover;
+}
+
+.tableau.player1Tableau {
+  top: 6%;
+  left: 20%;
+  transform: rotate(180deg);
+}
+
+.tableau.player2Tableau {
+  top: 51%;
+  left: 20%;
+}
+
+.pile {
+  border: 10px solid #ffffff;
+  border-radius: 0px;
+  background-image: url("../assets/empty.png");
+  background-size: cover;
+}
+
+.pile.last-move-invalid {
+  animation-name: pulse-red;
+  animation-duration: 1s;
+}
+
+.pile.can-drop {
+  border-color: transparent;
+  border-color: rgb(0, 150, 0);
+}
+
+.pile.can-not-drop {
+  border-color: transparent;
+  border-color: rgb(150, 0, 0);
+}
+
+.pile.player1Hand {
+  top: 50%;
+  left: 45%;
+  transform: rotate(180deg);
+}
+
+.pile.player2Hand {
+  top: 50%;
+  left: 43.2%;
+}
+
+.pile.player1Deck {
+  top: 51%;
+  left: 10%;
+  transform: rotate(180deg);
+}
+
+.pile.player2Deck {
+  top: 51%;
+  left: 8%;
+}
+
+.pile.player1Cemetery {
+  top: 51%;
+  left: 80%;
+  transform: rotate(180deg);
+}
+
+.pile.player2Cemetery {
+  top: 51%;
+  left: 78%;
+}
+
+.pile.player1Warlord {
+  top: 6%;
+  left: 45%;
+  transform: rotate(180deg);
+}
+
+.pile.player2Warlord {
+  top: 6%;
+  left: 43.2%;
+}
+
+.pile.player1Minion0 {
+  top: 6%;
+  left: 10%;
+  transform: rotate(180deg);
+}
+
+.pile.player1Minion1 {
+  top: 6%;
+  left: 27.5%;
+  transform: rotate(180deg);
+}
+
+.pile.player1Minion2 {
+  top: 6%;
+  left: 62.5%;
+  transform: rotate(180deg);
+}
+
+.pile.player1Minion3 {
+  top: 6%;
+  left: 80%;
+  transform: rotate(180deg);
+}
+
+.pile.player2Minion0 {
+  top: 6%;
+  left: 8%;
+}
+
+.pile.player2Minion1 {
+  top: 6%;
+  left: 25.5%;
+}
+
+.pile.player2Minion2 {
+  top: 6%;
+  left: 60.5%
+}
+
+.pile.player2Minion3 {
+  top: 6%;
+  left: 78%
+}
+
+.textBox {
+  border: solid black 1px;
+  border-radius: 3px;
+  background-color: white;
+  font: 16px monospace;
+  text-transform: capitalize;
+  display: inline-block;
+  text-align: center;
+  padding: 4px;
+  min-width: 10em;
+  max-width: 15em;
+}
+
+.scoreBox {
+  border: solid black 1px;
+  border-radius: 3px;
+  background-color: white;
+  font: 30px monospace;
+  text-transform: capitalize;
+  display: inline-block;
+  text-align: center;
+  padding: 4px;
+  min-width: 10em;
+  max-width: 15em;
+}
+
+nav ul {
+  max-width: 5em;
+  list-style: none;
+}
+
+nav ul li {
+  padding-top: 1em;
+  text-align: center;
+}
+
+nav ul button {
+  border: solid black 1px;
+  border-radius: 3px;
+  background-color: #cfcfcf;
+  padding: 1em;
+  min-width: 10em;
+  font-family: monospace;
+}
+
+nav ul button:active {
+  background-color: #688c00;
+}
+
+nav ul button span {
+  width: 18px;
+  height: 18px;
+
+  background-color: #dacc0b;
+  color: white;
+  text-align: center;
+  font: 16px monospace;
+  color: black ;
+  display: inline-block;
+}
+
+nav ul button.restart {
+  background-color: #cfcfcf;
+}
+
+nav ul button.restart:active {
+  background-color: #688c00;
+}
+
+@keyframes pulse-red {
+  0% {
+    border-color: inherit;
+    background-color: inherit;
+  }
+  30% {
+    border-color: red;
+    background-color: red;
+  }
+  50% {
+    border-color: inherit;
+    background-color: inherit;
+  }
+  80% {
+    border-color: red;
+    background-color: red;
+  }
+  100% {
+    border-color: inherit;
+    background-color: inherit;
+  }
+}

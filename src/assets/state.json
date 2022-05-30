@@ -1,0 +1,62 @@
+{
+  "tableaux": {
+    "player1Tableau": {
+      "piles": ["player1Hand", "player1Deck", "player1Cemetery", "player1Warlord", "player1Minion0", "player1Minion1", "player1Minion2", "player1Minion3"]
+    },
+    "player2Tableau": {
+      "piles": ["player2Hand", "player2Deck", "player2Cemetery", "player2Warlord", "player2Minion0", "player2Minion1", "player2Minion2", "player2Minion3"]
+    }
+  },
+  "piles": {
+    "player1Hand": { "cards": []},
+    "player1Deck": { "cards": [
+      "dark-elf-1",
+      "dark-elf-1-1",
+      "dark-elf-2",
+      "dark-elf-2-2",
+      "dark-elf-3",
+      "dark-elf-3-1",
+      "dark-elf-4",
+      "dark-elf-4-1",
+      "dark-elf-6",
+      "dark-elf-6-1",
+      "dark-elf-7",
+      "dark-elf-7-1",
+      "dark-elf-8",
+      "dark-elf-8-1"
+      ]},
+    "player1Cemetery": { "cards": [] },
+    "player1Warlord": { "cards" : ["dark-elf-5"]}, 
+    "player1Minion0": { "cards": [], "showBack": false },
+    "player1Minion1": { "cards": [], "showBack": false },
+    "player1Minion2": { "cards": [], "showBack": false },
+    "player1Minion3": { "cards": [], "showBack": false },
+    "player2Hand": { "cards": [] },
+    "player2Deck": { "cards": [
+      "human-1",
+      "human-1-1",
+      "human-2",
+      "human-2-2",
+      "human-3",
+      "human-3-1",
+      "human-4",
+      "human-4-1",
+      "human-6",
+      "human-6-1",
+      "human-7",
+      "human-7-1",
+      "human-8",
+      "human-8-1"
+      ]},
+    "player2Cemetery": { "cards": [] },
+    "player2Warlord": { "cards" : ["human-5"]}, 
+    "player2Minion0": { "cards": [], "showBack": false },
+    "player2Minion1": { "cards": [], "showBack": false },
+    "player2Minion2": { "cards": [], "showBack": false },
+    "player2Minion3": { "cards": [], "showBack": false }
+  },
+  "player1Turn": true,
+  "phase": "DrawPhase",
+  "ended": false,
+  "hasDrawn": false
+}
