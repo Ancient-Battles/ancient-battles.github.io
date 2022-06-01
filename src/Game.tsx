@@ -123,7 +123,7 @@ class Game extends React.Component<GameProps, GameState> {
     this.setState(prevState => {
       let newState = JSON.parse(JSON.stringify(prevState));
       for (let i = 0; i < newState.playerMana.length; i++) {
-        newState.playerMana[i] = Math.min(Math.max(newState.playerMana[i] + 1, 0), 10);
+        newState.playerMana[i] = Math.min(Math.max(newState.turnMana + 1, 0), 10);
       }
       return newState;
     });

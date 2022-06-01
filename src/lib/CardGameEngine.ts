@@ -59,6 +59,7 @@ export interface GameState {
   ended: boolean;
   winner?: string;
   playerMana: number[];
+  turnMana: number;
 }
 
 export class CardGameEngine {

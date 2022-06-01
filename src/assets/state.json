@@ -58,6 +58,7 @@
   "player1Turn": true,
   "phase": "DrawPhase",
   "playerMana": [5, 5],
+  "turnMana": 5,
   "ended": false,
   "hasDrawn": false
 }
