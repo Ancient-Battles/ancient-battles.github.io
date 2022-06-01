@@ -79,7 +79,8 @@ const pileTarget = {
     // Obtain the dragged item
     const item = monitor.getItem() as CardDragProps;
     // You can do something with it
-    if (props.getGameState().phase === 'BattlePhase') {
+    // An attack can only occur during BattlesPhase and not between cards of the same pile.
+    if (props.getGameState().phase === 'BattlePhase' && item.pileSourceId !== props.id) {
       // Do attack
       let defenderCard = props.getGameState().piles[props.id].cards[0];
       console.error('attacking: ' + item.cardId + 'from ' + item.pileSourceId);
