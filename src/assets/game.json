@@ -104,7 +104,7 @@
       "id": "player1Minion0",
       "name": "Minion Slot 0",
       "incoming": [
-        "!hasEnded() && (isPlayer1Turn() && getStatePhase() === 'MainPhase' && move.amount === 1 && toPile.cards.length === 0 && ('player1Hand' === move.from || 'player1Minion0' === move.from || 'player1Minion1' === move.from || 'player1Minion2' === move.from || 'player1Minion3' === move.from)) || (!isPlayer1Turn() && getStatePhase() === 'BattlePhase' && move.amount === 1 && toPile.cards.length === 1 && ('player2Minion0' === move.from || 'player2Minion1' === move.from || 'player2Minion2' === move.from || 'player2Minion3' === move.from))"
+        "!hasEnded() && (isPlayer1Turn() && getStatePhase() === 'MainPhase' && hasEnoughMana(getCard(card).rank) && move.amount === 1 && toPile.cards.length === 0 && ('player1Hand' === move.from || 'player1Minion0' === move.from || 'player1Minion1' === move.from || 'player1Minion2' === move.from || 'player1Minion3' === move.from)) || (!isPlayer1Turn() && getStatePhase() === 'BattlePhase' && move.amount === 1 && toPile.cards.length === 1 && ('player2Minion0' === move.from || 'player2Minion1' === move.from || 'player2Minion2' === move.from || 'player2Minion3' === move.from))"
       ],
       "allowShowFront": true,
       "showBack": false,
@@ -114,7 +114,7 @@
       "id": "player1Minion1",
       "name": "Minion Slot 1",
       "incoming": [
-        "!hasEnded() && (isPlayer1Turn() && getStatePhase() === 'MainPhase' && move.amount === 1 && toPile.cards.length === 0 && ('player1Hand' === move.from || 'player1Minion0' === move.from || 'player1Minion1' === move.from || 'player1Minion2' === move.from || 'player1Minion3' === move.from)) || (!isPlayer1Turn() && getStatePhase() === 'BattlePhase' && move.amount === 1 && toPile.cards.length === 1 && ('player2Minion0' === move.from || 'player2Minion1' === move.from || 'player2Minion2' === move.from || 'player2Minion3' === move.from))"
+        "!hasEnded() && (isPlayer1Turn() && getStatePhase() === 'MainPhase' && hasEnoughMana(getCard(card).rank) && move.amount === 1 && toPile.cards.length === 0 && ('player1Hand' === move.from || 'player1Minion0' === move.from || 'player1Minion1' === move.from || 'player1Minion2' === move.from || 'player1Minion3' === move.from)) || (!isPlayer1Turn() && getStatePhase() === 'BattlePhase' && move.amount === 1 && toPile.cards.length === 1 && ('player2Minion0' === move.from || 'player2Minion1' === move.from || 'player2Minion2' === move.from || 'player2Minion3' === move.from))"
       ],
       "allowShowFront": true,
       "showBack": false,
@@ -124,7 +124,7 @@
       "id": "player1Minion2",
       "name": "Minion Slot 2",
       "incoming": [
-        "!hasEnded() && (isPlayer1Turn() && getStatePhase() === 'MainPhase' && move.amount === 1 && toPile.cards.length === 0 && ('player1Hand' === move.from || 'player1Minion0' === move.from || 'player1Minion1' === move.from || 'player1Minion2' === move.from || 'player1Minion3' === move.from)) || (!isPlayer1Turn() && getStatePhase() === 'BattlePhase' && move.amount === 1 && toPile.cards.length === 1 && ('player2Minion0' === move.from || 'player2Minion1' === move.from || 'player2Minion2' === move.from || 'player2Minion3' === move.from))"
+        "!hasEnded() && (isPlayer1Turn() && getStatePhase() === 'MainPhase' && hasEnoughMana(getCard(card).rank) && move.amount === 1 && toPile.cards.length === 0 && ('player1Hand' === move.from || 'player1Minion0' === move.from || 'player1Minion1' === move.from || 'player1Minion2' === move.from || 'player1Minion3' === move.from)) || (!isPlayer1Turn() && getStatePhase() === 'BattlePhase' && move.amount === 1 && toPile.cards.length === 1 && ('player2Minion0' === move.from || 'player2Minion1' === move.from || 'player2Minion2' === move.from || 'player2Minion3' === move.from))"
       ],
       "allowShowFront": true,
       "showBack": false,
@@ -134,7 +134,7 @@
       "id": "player1Minion3",
       "name": "Minion Slot 3",
       "incoming": [
-        "!hasEnded() && (isPlayer1Turn() && getStatePhase() === 'MainPhase' && move.amount === 1 && toPile.cards.length === 0 && ('player1Hand' === move.from || 'player1Minion0' === move.from || 'player1Minion1' === move.from || 'player1Minion2' === move.from || 'player1Minion3' === move.from)) || (!isPlayer1Turn() && getStatePhase() === 'BattlePhase' && move.amount === 1 && toPile.cards.length === 1 && ('player2Minion0' === move.from || 'player2Minion1' === move.from || 'player2Minion2' === move.from || 'player2Minion3' === move.from))"
+        "!hasEnded() && (isPlayer1Turn() && getStatePhase() === 'MainPhase' && hasEnoughMana(getCard(card).rank) && move.amount === 1 && toPile.cards.length === 0 && ('player1Hand' === move.from || 'player1Minion0' === move.from || 'player1Minion1' === move.from || 'player1Minion2' === move.from || 'player1Minion3' === move.from)) || (!isPlayer1Turn() && getStatePhase() === 'BattlePhase' && move.amount === 1 && toPile.cards.length === 1 && ('player2Minion0' === move.from || 'player2Minion1' === move.from || 'player2Minion2' === move.from || 'player2Minion3' === move.from))"
       ],
       "allowShowFront": true,
       "showBack": false,
@@ -144,7 +144,7 @@
       "id": "player2Minion0",
       "name": "Minion Slot 0",
       "incoming": [
-        "!hasEnded() && (!isPlayer1Turn() && getStatePhase() === 'MainPhase' && move.amount === 1 && toPile.cards.length === 0 && ('player2Hand' === move.from || 'player2Minion0' === move.from || 'player2Minion1' === move.from || 'player2Minion2' === move.from || 'player2Minion3' === move.from)) || (isPlayer1Turn() && getStatePhase() === 'BattlePhase' && move.amount === 1 && toPile.cards.length === 1 && ('player1Minion0' === move.from || 'player1Minion1' === move.from || 'player1Minion2' === move.from || 'player1Minion3' === move.from))"
+        "!hasEnded() && (!isPlayer1Turn() && getStatePhase() === 'MainPhase' && hasEnoughMana(getCard(card).rank) && move.amount === 1 && toPile.cards.length === 0 && ('player2Hand' === move.from || 'player2Minion0' === move.from || 'player2Minion1' === move.from || 'player2Minion2' === move.from || 'player2Minion3' === move.from)) || (isPlayer1Turn() && getStatePhase() === 'BattlePhase' && move.amount === 1 && toPile.cards.length === 1 && ('player1Minion0' === move.from || 'player1Minion1' === move.from || 'player1Minion2' === move.from || 'player1Minion3' === move.from))"
       ],
       "allowShowFront": true,
       "showBack": false,
@@ -154,7 +154,7 @@
       "id": "player2Minion1",
       "name": "Minion Slot 1",
       "incoming": [
-        "!hasEnded() && (!isPlayer1Turn() && getStatePhase() === 'MainPhase' && move.amount === 1 && toPile.cards.length === 0 && ('player2Hand' === move.from || 'player2Minion0' === move.from || 'player2Minion1' === move.from || 'player2Minion2' === move.from || 'player2Minion3' === move.from)) || (isPlayer1Turn() && getStatePhase() === 'BattlePhase' && move.amount === 1 && toPile.cards.length === 1 && ('player1Minion0' === move.from || 'player1Minion1' === move.from || 'player1Minion2' === move.from || 'player1Minion3' === move.from))"
+        "!hasEnded() && (!isPlayer1Turn() && getStatePhase() === 'MainPhase' && hasEnoughMana(getCard(card).rank) && move.amount === 1 && toPile.cards.length === 0 && ('player2Hand' === move.from || 'player2Minion0' === move.from || 'player2Minion1' === move.from || 'player2Minion2' === move.from || 'player2Minion3' === move.from)) || (isPlayer1Turn() && getStatePhase() === 'BattlePhase' && move.amount === 1 && toPile.cards.length === 1 && ('player1Minion0' === move.from || 'player1Minion1' === move.from || 'player1Minion2' === move.from || 'player1Minion3' === move.from))"
       ],
       "allowShowFront": true,
       "showBack": false,
@@ -164,7 +164,7 @@
       "id": "player2Minion2",
       "name": "Minion Slot 2",
       "incoming": [
-        "!hasEnded() && (!isPlayer1Turn() && getStatePhase() === 'MainPhase' && move.amount === 1 && toPile.cards.length === 0 && ('player2Hand' === move.from || 'player2Minion0' === move.from || 'player2Minion1' === move.from || 'player2Minion2' === move.from || 'player2Minion3' === move.from)) || (isPlayer1Turn() && getStatePhase() === 'BattlePhase' && move.amount === 1 && toPile.cards.length === 1 && ('player1Minion0' === move.from || 'player1Minion1' === move.from || 'player1Minion2' === move.from || 'player1Minion3' === move.from))"
+        "!hasEnded() && (!isPlayer1Turn() && getStatePhase() === 'MainPhase' && hasEnoughMana(getCard(card).rank) && move.amount === 1 && toPile.cards.length === 0 && ('player2Hand' === move.from || 'player2Minion0' === move.from || 'player2Minion1' === move.from || 'player2Minion2' === move.from || 'player2Minion3' === move.from)) || (isPlayer1Turn() && getStatePhase() === 'BattlePhase' && move.amount === 1 && toPile.cards.length === 1 && ('player1Minion0' === move.from || 'player1Minion1' === move.from || 'player1Minion2' === move.from || 'player1Minion3' === move.from))"
       ],
       "allowShowFront": true,
       "showBack": false,
@@ -174,7 +174,7 @@
       "id": "player2Minion3",
       "name": "Minion Slot 3",
       "incoming": [
-        "!hasEnded() && (!isPlayer1Turn() && getStatePhase() === 'MainPhase' && move.amount === 1 && toPile.cards.length === 0 && ('player2Hand' === move.from || 'player2Minion0' === move.from || 'player2Minion1' === move.from || 'player2Minion2' === move.from || 'player2Minion3' === move.from)) || (isPlayer1Turn() && getStatePhase() === 'BattlePhase' && move.amount === 1 && toPile.cards.length === 1 && ('player1Minion0' === move.from || 'player1Minion1' === move.from || 'player1Minion2' === move.from || 'player1Minion3' === move.from))"
+        "!hasEnded() && (!isPlayer1Turn() && getStatePhase() === 'MainPhase' && hasEnoughMana(getCard(card).rank) && move.amount === 1 && toPile.cards.length === 0 && ('player2Hand' === move.from || 'player2Minion0' === move.from || 'player2Minion1' === move.from || 'player2Minion2' === move.from || 'player2Minion3' === move.from)) || (isPlayer1Turn() && getStatePhase() === 'BattlePhase' && move.amount === 1 && toPile.cards.length === 1 && ('player1Minion0' === move.from || 'player1Minion1' === move.from || 'player1Minion2' === move.from || 'player1Minion3' === move.from))"
       ],
       "allowShowFront": true,
       "showBack": false,

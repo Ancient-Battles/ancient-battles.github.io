@@ -58,6 +58,7 @@ export interface GameState {
   hasDrawn: boolean;
   ended: boolean;
   winner?: string;
+  playerMana: number[];
 }
 
 export class CardGameEngine {
@@ -99,6 +100,14 @@ export class CardGameEngine {
       return 'Player 1';
     } else {
       return 'Player 2';
+    }
+  }
+
+  static getPlayerMana(state: GameState, isPlayer1: string) {
+    if (isPlayer1) {
+      return state.playerMana[0];
+    } else {
+      return state.playerMana[1];
     }
   }
 }
@@ -195,6 +204,7 @@ export class RuleContext {
     let preval = '"use strict"; ' +
       'var getCard = this.getCard.bind(this); ' +
       'var getPile = this.getPile.bind(this); ' +
+      'var hasEnoughMana = this.hasEnoughMana.bind(this); ' +
       'var getStatePile = (function(p){return this.state.piles[p];}).bind(this); ' +
       'var getStatePhase = (function(p){return this.state.phase;}).bind(this);' +
       'var isPlayer1Turn = (function(p){return this.state.player1Turn;}).bind(this);' +
@@ -204,9 +214,19 @@ export class RuleContext {
       'var card = this.move.card; ' +
       'var fromPile = getStatePile(this.move.from); ' +
       'var toPile = getStatePile(this.move.to); ' +
+      'var enoughMana = hasEnoughMana(getCard(card).rank); ' +
       'var move = this.move; ';
       
     return eval(preval + rule);
+  }
+
+  hasEnoughMana(amount: number) {
+    let isPlayer1 = this.state.player1Turn;
+    if (isPlayer1) {
+      return (this.state.playerMana[0] >= amount);
+    } else {
+      return (this.state.playerMana[1] >= amount);
+    }
   }
 
   getPile(pileId?: string): PileProps {
@@ -331,6 +351,12 @@ export class Move implements CardGameStateChanger {
     if (this.manual && newState.phase === 'DrawPhase' && !(this.to === this.from)) {
       newState.hasDrawn = true;
     }
+
+    // if this is a card summon, spend mana equal to card rank
+    if (this.from.includes('Hand') && this.to.includes('Minion')) {
+      this.spendMana(newState, this.getCard(this.card).rank);
+    }
+
     // make card move
     if (this.amount === 1 && this.card !== '') {
       newState.piles[this.from].cards.splice(
@@ -348,6 +374,22 @@ export class Move implements CardGameStateChanger {
     }
 
     return newState;
+  }
+
+  getCard(cardId?: string): CardProps {
+    let card = this.gameProps ? this.gameProps.cards.find(cardItem => cardItem.id === cardId) : undefined;
+    if (!card) {
+      throw new Error('Card ' + cardId + ' not found!');
+    }
+    return card;
+  }
+
+  spendMana(state: GameState, manaAmount: number) {
+    if (state.player1Turn) {
+      state.playerMana[0] -= manaAmount;
+    } else {
+      state.playerMana[1] -= manaAmount;
+    }
   }
 }
 

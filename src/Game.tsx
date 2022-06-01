@@ -96,6 +96,7 @@ class Game extends React.Component<GameProps, GameState> {
         case Phase.EndPhase:
           newState.player1Turn = !newState.player1Turn;
           resetPilesActions(newState.piles);
+          this.addMana();
           newState.hasDrawn = false;
           newState.phase = Phase.DrawPhase;
           break;
@@ -113,6 +114,17 @@ class Game extends React.Component<GameProps, GameState> {
       newState.hasDrawn = false;
       newState.phase = Phase.DrawPhase;
       resetPilesActions(newState.piles);
+      this.addMana();
+      return newState;
+    });
+  }
+
+  addMana() {
+    this.setState(prevState => {
+      let newState = JSON.parse(JSON.stringify(prevState));
+      for (let i = 0; i < newState.playerMana.length; i++) {
+        newState.playerMana[i] = Math.min(Math.max(newState.playerMana[i] + 1, 0), 10);
+      }
       return newState;
     });
   }
@@ -168,6 +180,8 @@ class Game extends React.Component<GameProps, GameState> {
                   'Turn: ' + CardGameEngine.getTurnPlayer(this.state) + '\n' +
                   'Player 1: ' + player1WarlordHP + ' HP' + '\n' + 
                   'Player 2: ' + player2WarlordHP + ' HP' + '\n' +
+                  'Player 1 Mana: ' + this.state.playerMana[0] + '\n' +
+                  'Player 2 Mana: ' + this.state.playerMana[1] + '\n' +
                   'Winner: ' + winner + ''}
                 </pre>
               </div>

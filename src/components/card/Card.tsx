@@ -8,7 +8,7 @@ export interface CardProps {
   id: string;
   url: string;
   category: string;
-  rank: string;
+  rank: number;
   attackValue: number;
   healthValue: number;
   originalHealthValue: number;
